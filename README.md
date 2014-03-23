@@ -1,4 +1,4 @@
 bong-act
 ========
 
-bong 运动
+bong act visualization

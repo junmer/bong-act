@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>bong-act weekly</title>
+        <meta name="description" content="bong weekly">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta http-equiv="cleartype" content="on">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileColor" content="#222222">
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!--
+        <meta name="mobile-web-app-capable" content="yes">
+        -->
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        -->
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="asset/common/css/normalize.css">
+        <link rel="stylesheet" href="asset/common/css/main.css">
+
+        <script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script>
+        
+        <script src="http://cdn.bootcss.com/raphael/2.1.2/raphael-min.js"></script>
+        <script src="http://cdn.bootcss.com/graphael/0.5.1/g.raphael-min.js"></script>
+        <script src="http://cdn.bootcss.com/graphael/0.5.1/g.dot-min.js"></script>
+
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?335ed71079c070c45bf319bc38c818f4";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+    </head>
+    <body class="bo-wrap">
+
+        <header class="bo-header">
+            <h1>bong weekly</h1>
+        </header>
+
+        <section class="bo-hero" >
+            <div id="bo-weekly-chart"></div>
+        </section>
+
+        <footer class="bo-footer" >
+            bong open
+        </footer>
+        
+        <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+
+        <script>
+            require.config({
+                'baseUrl': '/asset',
+                'paths': {}
+            });
+        </script>
+        <script>
+
+            require(['weekly/main'], function(weekly) {
+                $(function() {
+                    weekly.init('bo-weekly-chart');  
+                });
+            });
+
+        </script>
+
+    </body>
+</html>
