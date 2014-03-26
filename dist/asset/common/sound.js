@@ -1,0 +1,1 @@
+define("common/sound",function(){var exports={};return exports.enable=enableMotion,exports.play=play,exports});

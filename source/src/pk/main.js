@@ -17,6 +17,22 @@ define(function (require) {
 
     }
 
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function getRandomValue() {
+        var v = [];
+        for (var i = 0; i < 5; i++) {
+            v.push(randomInt(30, 99));
+        }
+        return v;
+    }
+
+    function getRandomName() {
+        return Math.floor(Math.random() * 2147483648).toString(36);
+    }
+
     var testData = [{
         value: [98, 34, 94, 90, 86],
         name: 'dayu'
@@ -56,18 +72,25 @@ define(function (require) {
             userValue.push(Math.ceil(value / 60));
         });
 
+        // var userAttr = {
+        //     value: userValue,
+        //     name: userOpt.nickName
+        // };
+        
         var userAttr = {
-            value: userValue,
-            name: userOpt.username
+            value: getRandomValue(),
+            name: getRandomName()
         };
 
-        return testData.pop();
+        return userAttr;
 
-        // return userAttr;
+        // return testData.pop();
 
     }
 
     function getUser(callback) {
+
+        // @todo 获取配对用户信息
 
         var userList = [
             {username: 18668139821},
@@ -128,17 +151,19 @@ define(function (require) {
 
     }
 
-    function init() {
-
+    function getBongPk() {
         getUser(function (users) {
 
             whenCallback(users, getUserData, render);
 
         });
+    }
 
-        shake.on('bongpk', function () {
-            alert(123123);
-        });
+    function init() {
+
+        getBongPk();
+        
+        shake.on('bongpk', getBongPk);
 
     }
 

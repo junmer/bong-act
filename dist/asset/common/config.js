@@ -1,0 +1,1 @@
+define("common/config",function(){var e="http://115.29.178.45/v20140320";return{api:e,"api/weekly":"/api/weekly","api/sportblocks":e+"/sportblocks"}});
