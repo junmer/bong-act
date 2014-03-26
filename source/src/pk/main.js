@@ -17,6 +17,33 @@ define(function (require) {
 
     }
 
+    /**
+     * 节流
+     * @param  {Function} func      目标函数
+     * @param  {Number} wait        响应频率
+     * @param  {boolean} immediate  立即执行
+     * @return {Function}           已防抖函数
+     */
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) {
+                    func.apply(context, args);
+                }
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) {
+                func.apply(context, args);
+            }
+        };
+    }
+
     function randomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
@@ -163,7 +190,7 @@ define(function (require) {
 
         getBongPk();
         
-        shake.on('bongpk', getBongPk);
+        shake.on('bongpk', debounce(getBongPk, 800, false) );
 
     }
 
