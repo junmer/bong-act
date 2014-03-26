@@ -1,1 +1,1 @@
-web: node web.js
+web: env PRODUCT=1 node web.js

@@ -29,10 +29,10 @@
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
 
-        <link rel="stylesheet" href="asset/common/css/normalize.css">
-        <link rel="stylesheet" href="asset/common/css/main.css">
+        <link rel="stylesheet" href="src/common/css/normalize.css">
+        <link rel="stylesheet" href="src/common/css/main.css">
 
-        <script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script>
+        <script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 
         <script>
         var _hmt = _hmt || [];
@@ -62,7 +62,14 @@
         <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
         <script>
             require.config({
-                'baseUrl': '/asset'
+                "baseUrl": "/src",
+                "packages": [
+                    {
+                        "name": "moment",
+                        "location": "../dep/moment/2.0.1/src",
+                        "main": "moment"
+                    }
+                ]
             });
 
             !function(){
@@ -87,13 +94,7 @@
 
             require(['pk/main'], function(pk) {
                 $(function() {
-                    pk.init('bo-pk-chart', [{
-                        value: [98, 72, 34, 94, 90, 86],
-                        name: 'dayu'
-                    }, {
-                        value: [97, 32, 74, 95, 87, 65],
-                        name: 'haoyue'
-                    }]);
+                    pk.init();
                 });
             });
 

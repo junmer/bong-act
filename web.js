@@ -2,7 +2,13 @@ var express = require('express');
 var app = express();
 app.use(express.logger());
 
-app.use(express.static(__dirname + '/static'));
+var product = process.env.PRODUCT;
+if (product) {
+    app.use(express.static(__dirname + '/dist'));
+} 
+else {
+    app.use(express.static(__dirname + '/source'));
+}
 
 app.get('/api/weekly', function (req, res, next) {
 

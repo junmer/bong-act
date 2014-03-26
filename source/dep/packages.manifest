@@ -1,0 +1,9 @@
+{
+    "moment": {
+        "2.0.1": {
+            "name": "moment",
+            "version": "2.0.1",
+            "main": "moment"
+        }
+    }
+}

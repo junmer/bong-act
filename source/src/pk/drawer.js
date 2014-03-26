@@ -1,9 +1,8 @@
 /**
- * @file pk
+ * @file pk drawer
  */
 
 define(function (require) {
-
 
     function getOption(data) {
 
@@ -25,14 +24,13 @@ define(function (require) {
             polar : [
                 {
                     indicator : [
-                        {text : '静坐', max  : 100},
-                        {text : '散步', max  : 100},
-                        {text : '热身', max  : 100},
-                        {text : '健走', max  : 100},
-                        {text : '跑步', max  : 100},
-                        {text : '复合', max  : 100}
+                        {text : '散步', max : 100},
+                        {text : '热身', max : 100},
+                        {text : '健走', max : 100},
+                        {text : '复合', max : 100},
+                        {text : '跑步', max : 100}
                     ],
-                    radius : 130
+                    radius : 120
                 }
             ],
             series : [
@@ -58,7 +56,7 @@ define(function (require) {
     var echarts;
     var myChart;
 
-    function init(targetId, data) {
+    function render(targetId, data) {
 
         require(
             [
@@ -92,7 +90,7 @@ define(function (require) {
     }
 
     var exports = {
-        init: init
+        draw: render
     };
 
     return exports;
