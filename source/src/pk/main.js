@@ -6,6 +6,7 @@ define(function (require) {
 
     var config = require('common/config');
     var shake = require('common/shake');
+    var sound = require('common/sound');
     var moment = require('moment');
     var drawer = require('./drawer');
 
@@ -178,7 +179,12 @@ define(function (require) {
 
     }
 
-    function getBongPk() {
+    function getBongPk(mute) {
+
+        if (!mute) {
+            sound.get().play();
+        }
+        
         getUser(function (users) {
 
             whenCallback(users, getUserData, render);
@@ -188,9 +194,9 @@ define(function (require) {
 
     function init() {
 
-        getBongPk();
+        getBongPk(false);
         
-        shake.on('bongpk', debounce(getBongPk, 800, false) );
+        shake.on('bongpk', debounce(getBongPk, 800, true) );
 
     }
 

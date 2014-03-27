@@ -1,1 +1,1 @@
-define("common/sound",function(){var exports={};return exports.enable=enableMotion,exports.play=play,exports});
+define("common/sound",function(require){function e(e){return e=e||n[Math.floor(Math.random()*n.length+1)-1],_[e]||(_[e]=t(a+"/"+e,{formats:["mp3"]})),_[e]}var t=require("AudioFX"),a=require.toUrl("./sound"),n=["radar","radar2","yyt","coin","fb","msn","zd"],_={},exports={};return exports.supported=t.supported,exports.get=e,exports});
